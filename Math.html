@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Focus Games</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="menu">
+    <h1>Focus Hub</h1>
+    <p>Select a tool to begin.</p>
+
+    <div class="game-list">
+      <button onclick="loadGame('https://www.kodub.com/apps/polytrack')" class="game-button">
+        ▶️ Play 3D Poly Track
+      </button>
+    </div>
+  </div>
+
+  <div id="game-container" class="fullscreen" style="display:none;">
+    <button onclick="closeGame()" class="close-button">✖ Exit</button>
+    <iframe id="game-frame" src="" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function loadGame(url) {
+      document.getElementById('menu').style.display = 'none';
+      document.getElementById('game-frame').src = url;
+      document.getElementById('game-container').style.display = 'block';
+    }
+
+    function closeGame() {
+      document.getElementById('game-frame').src = '';
+      document.getElementById('game-container').style.display = 'none';
+      document.getElementById('menu').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
